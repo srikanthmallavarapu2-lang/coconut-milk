@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cocolush — Pure coconut milk, made lovely</title>
+  <meta name="description" content="Meet Cocolush coconut milk: velvety, organic goodness with zero preservatives and single-origin palm purity." />
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+
+  <!-- Preload Critical Assets -->
+  <link rel="preload" as="image" href="assets/logo.svg" />
+  <link rel="preload" as="image" href="assets/bottle.png" />
+  <link rel="preload" as="image" href="assets/left piece.png" />
+  <link rel="preload" as="image" href="assets/right piece.png" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ======================================================================
+       HEADER
+       ====================================================================== -->
+  <header class="site-header is-hero">
+    <a class="brand" href="#home" aria-label="Cocolush home">
+      <div class="brand-logo-wrap">
+        <img src="assets/logo.svg" alt="Cocolush" width="148" height="50" />
+      </div>
+    </a>
+
+    <div class="main-nav-wrap">
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#home" data-nav="home">Home</a>
+        <a href="#story" data-nav="story">Our story</a>
+        <a href="#goodness" data-nav="goodness">Goodness</a>
+        <a href="#process" data-nav="process">The process</a>
+        <a href="#uses" data-nav="uses">Pairings</a>
+        <a href="#purity" data-nav="purity">Purity Lab</a>
+        <a href="#faq" data-nav="faq">FAQ</a>
+      </nav>
+    </div>
+
+    <div class="header-actions">
+      <!-- Ambient nature audio toggle -->
+      <button class="sound-toggle-btn" title="Toggle ambient nature soundscape" aria-label="Toggle ambient nature soundscape">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+        </svg>
+      </button>
+
+      <!-- Cart Drawer Toggle -->
+      <button class="cart-toggle-btn" aria-label="View shopping bag">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        <span>Bag</span>
+        <span class="cart-badge">1</span>
+      </button>
+
+      <!-- Quick Buy CTA -->
+      <a class="buy-button" href="#cta">
+        <span>Order Now</span>
+        <svg viewBox="0 0 20 20" aria-hidden="true">
+          <path d="M4 10h11M10 5l5 5-5 5"></path>
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <main class="relative min-h-screen">
+
+    <!-- ====================================================================
+         SCENE TRACK: HERO + STORY SPOTLIGHT (INTERACTIVE SCROLL CHOREOGRAPHY)
+         ==================================================================== -->
+    <section class="scene-track" id="home">
+      <div class="scene">
+
+        <!-- Hero Ambient Panel -->
+        <div class="hero-panel" aria-hidden="true"></div>
+
+        <!-- Hero Title Copy -->
+        <section class="hero-copy" aria-labelledby="hero-title">
+          <h1 class="hero-title intro-hidden" id="hero-title">
+            <span>Coconut</span>
+            <span>milk</span>
+          </h1>
+        </section>
+
+        <!-- Floating Left Coconut Half -->
+        <div class="coconut coconut-left" aria-hidden="true">
+          <div class="intro-layer intro-hidden" id="leftNutIntro">
+            <img src="assets/left piece.png" alt="Fresh coconut half" />
+          </div>
+        </div>
+
+        <!-- Floating Right Coconut Half -->
+        <div class="coconut coconut-right" aria-hidden="true">
+          <div class="intro-layer intro-hidden" id="rightNutIntro">
+            <img src="assets/right piece.png" alt="Fresh coconut piece" />
+          </div>
+        </div>
+
+        <!-- Floating Hero Pill Badges (CLICKABLE WITH ANIMATED INFO) -->
+        <div class="hero-labels" aria-label="Product certifications">
+          <div class="hero-label hero-label-1" data-info="preservatives" title="Click to view Clean Label details">
+            <span class="hero-label-pill">
+              <span class="hero-label-dot"></span>Zero preservatives &nbsp;ⓘ
+            </span>
+          </div>
+          <div class="hero-label hero-label-2" data-info="organic" title="Click to view Organic verification">
+            <span class="hero-label-pill">
+              <span class="hero-label-dot"></span>100% Organic &nbsp;ⓘ
+            </span>
+          </div>
+          <div class="hero-label hero-label-3" data-info="estate" title="Click to view Farm Origin">
+            <span class="hero-label-pill">
+              <span class="hero-label-dot"></span>Single-Estate Harvest &nbsp;ⓘ
+            </span>
+          </div>
+        </div>
+
+        <!-- The Hero Bottle (NEW USER-UPLOADED HIGH-RES BOTTLE) -->
+        <div class="bottle">
+          <div class="intro-layer intro-hidden" id="bottleIntro">
+            <div class="bottle-float">
+              <img src="assets/bottle.png" alt="A bottle of Cocolush pure organic coconut milk 850ml" id="heroBottleImg" />
+              <!-- Interactive 3D Inspect Trigger Button -->
+              <button class="bottle-inspect-trigger" id="inspectBottleBtn" aria-label="Inspect 850ml bottle in 3D">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <span>Inspect Bottle (850ml)</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story Spotlight Panel (Slides up with real-time fluid waves) -->
+        <div class="story-panel" id="story">
+          <!-- Real-Time Harmonic Sine Waves -->
+          <svg class="milk-wave" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true">
+            <g>
+              <path fill="rgba(255, 255, 255, 0.55)" d=""></path>
+              <path class="milk-crest" d=""></path>
+            </g>
+            <g>
+              <path fill="rgba(236, 246, 251, 0.92)" d=""></path>
+              <path class="milk-crest" d=""></path>
+            </g>
+            <g>
+              <path fill="#fbf8f0" d=""></path>
+              <path class="milk-crest" d=""></path>
+            </g>
+          </svg>
+
+          <!-- Spotlight Main Copy -->
+          <div class="spotlight-copy">
+            <h2 class="spotlight-title">
+              <span class="mask-line"><span>Naturally</span></span>
+              <span class="mask-line"><span><em>good.</em></span></span>
+            </h2>
+            <div>
+              <p class="spotlight-text">
+                Smooth, nourishing coconut milk crafted with single-estate purity you can feel. Zero gums, zero artificial emulsifiers. Pour it, froth it, love it.
+              </p>
+              <div class="spotlight-actions">
+                <a class="spotlight-link shimmer-btn" href="#uses">
+                  <span>Explore Pairings</span>
+                  <span class="btn-arrow" aria-hidden="true">↗</span>
+                </a>
+                <button class="spotlight-link glass-action-btn" id="viewLabReportBtn">
+                  <span>Lab Transparency ⓘ</span>
+                </button>
+                <button class="spotlight-link quiz-trigger-btn shimmer-btn" id="tasteQuizBtn">
+                  <span class="sparkle-icon">✨</span>
+                  <span>Find Your Pour</span>
+                </button>
+              </div>
+
+              <!-- Interactive Flavor Edition Selector & Sensory Radar (21st.dev Style) -->
+              <div class="spotlight-variants-card modern-frosted-card">
+                <div class="variants-box">
+                  <div class="variants-head">
+                    <span class="variants-label">Flavor Edition</span>
+                    <span class="variants-sublabel">Tap to preview profile</span>
+                  </div>
+                  <div class="variant-pills" role="tablist">
+                    <button class="variant-pill is-active" data-variant="pure" role="tab" aria-selected="true"><span class="pill-emoji">🥥</span> Pure</button>
+                    <button class="variant-pill" data-variant="barista" role="tab" aria-selected="false"><span class="pill-emoji">☕</span> Barista</button>
+                    <button class="variant-pill" data-variant="vanilla" role="tab" aria-selected="false"><span class="pill-emoji">🌿</span> Vanilla</button>
+                    <button class="variant-pill" data-variant="keto" role="tab" aria-selected="false"><span class="pill-emoji">🥑</span> Keto 0g</button>
+                  </div>
+                </div>
+
+                <!-- Live Sensory Balance Bars with Animated Counters & Hover Tooltips -->
+                <div class="sensory-radar-grid">
+                  <div class="sensory-bar-item" data-tooltip="Single-estate cold pressed emulsion score">
+                    <div class="sensory-item-head">
+                      <span class="sensory-label">Creaminess</span>
+                      <strong class="sensory-val" id="valCream">92%</strong>
+                    </div>
+                    <div class="sensory-track"><div class="sensory-fill" id="radarCream" style="width: 92%;"></div></div>
+                  </div>
+                  <div class="sensory-bar-item" data-tooltip="Natural sweetness from fresh coconut water (0g added refined sugar)">
+                    <div class="sensory-item-head">
+                      <span class="sensory-label">Sweetness</span>
+                      <strong class="sensory-val" id="valSweet">65%</strong>
+                    </div>
+                    <div class="sensory-track"><div class="sensory-fill" id="radarSweet" style="width: 65%;"></div></div>
+                  </div>
+                  <div class="sensory-bar-item" data-tooltip="Silky micro-bubble density engineered for barista latte art">
+                    <div class="sensory-item-head">
+                      <span class="sensory-label">Micro-Foam</span>
+                      <strong class="sensory-val" id="valFoam">88%</strong>
+                    </div>
+                    <div class="sensory-track"><div class="sensory-fill" id="radarFoam" style="width: 88%;"></div></div>
+                  </div>
+                  <div class="sensory-bar-item" data-tooltip="Pure Lauric &amp; Caprylic medium chain triglycerides per bottle">
+                    <div class="sensory-item-head">
+                      <span class="sensory-label">Clean MCTs</span>
+                      <strong class="sensory-val" id="valMct">16g</strong>
+                    </div>
+                    <div class="sensory-track"><div class="sensory-fill" id="radarMct" style="width: 72%;"></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Rotating Circular Organic Badge (CLICKABLE) -->
+          <div class="spotlight-badge" id="spotlightBadgeBtn" title="Click for purity lab details" aria-label="100% coconut purity badge">
+            <svg viewBox="0 0 200 200">
+              <defs>
+                <path id="badge-circle" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"></path>
+              </defs>
+              <text>
+                <textPath href="#badge-circle" textLength="486" lengthAdjust="spacing">
+                  100% coconut · zero preservatives · pure cocolush ·
+                </textPath>
+              </text>
+            </svg>
+            <span class="badge-core">pure<br/>goodness</span>
+          </div>
+
+          <!-- Bottle Ambient Halo Glow -->
+          <div class="bottle-glow" aria-hidden="true"></div>
+
+          <!-- Feature Callouts with Precision Connecting Lines (CLICKABLE - 21st.dev Modern Cards) -->
+          <ul class="callouts" id="goodness" aria-label="The good stuff">
+            <li class="callout callout-1 modern-callout-card" data-info="organic">
+              <span class="callout-line" aria-hidden="true"></span>
+              <div class="callout-body">
+                <div class="callout-meta-tag">
+                  <span class="callout-num">01</span>
+                  <span class="callout-badge-pill">Regenerative Estate</span>
+                </div>
+                <strong>100% Organic <span class="arrow-glyph">↗</span></strong>
+                <span class="callout-text">Harvested from certified regenerative palm estates.</span>
+                <span class="callout-tap-hint">Tap for soil &amp; purity lab data</span>
+              </div>
+            </li>
+            <li class="callout callout-2 modern-callout-card" data-info="lowfat">
+              <span class="callout-line" aria-hidden="true"></span>
+              <div class="callout-body">
+                <div class="callout-meta-tag">
+                  <span class="callout-num">02</span>
+                  <span class="callout-badge-pill">16g Healthy Lipids</span>
+                </div>
+                <strong>Naturally Silky <span class="arrow-glyph">↗</span></strong>
+                <span class="callout-text">Velvety mouthfeel, balanced healthy MCT fats.</span>
+                <span class="callout-tap-hint">Tap for nutrition data</span>
+              </div>
+            </li>
+            <li class="callout callout-3 modern-callout-card" data-info="preservatives">
+              <span class="callout-line" aria-hidden="true"></span>
+              <div class="callout-body">
+                <div class="callout-meta-tag">
+                  <span class="callout-num">03</span>
+                  <span class="callout-badge-pill">0% Additives</span>
+                </div>
+                <strong>Zero Preservatives <span class="arrow-glyph">↗</span></strong>
+                <span class="callout-text">Just coconut & pure alpine water. Nothing extra.</span>
+                <span class="callout-tap-hint">Tap for sterile filtration</span>
+              </div>
+            </li>
+          </ul>
+
+          <!-- Infinite Text Marquee -->
+          <div class="marquee" aria-hidden="true">
+            <div class="marquee-track">
+              <span>Organic · Pure Cocolush · Zero Preservatives · Just Coconut · Cold-Pressed ·&nbsp;</span>
+              <span>Organic · Pure Cocolush · Zero Preservatives · Just Coconut · Cold-Pressed ·&nbsp;</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         THE PROCESS SECTION (INTERACTIVE STAGE DEMONSTRATION)
+         ==================================================================== -->
+    <section class="process-track" id="process" aria-labelledby="process-title">
+      <!-- Wavy Transition Dividers -->
+      <svg class="process-wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+        <path class="process-wave-back" d="M0,70 C180,30 360,30 540,62 C720,94 900,100 1080,72 C1260,44 1350,40 1440,52 C1500,58 1550,64 1600,66 L1600,120 L0,120 Z"></path>
+        <path class="process-wave-front" d="M0,84 C200,56 380,58 600,80 C820,102 1000,104 1200,84 C1320,72 1390,70 1440,74 C1500,76 1550,80 1600,82 L1600,120 L0,120 Z"></path>
+      </svg>
+
+      <div class="process-sticky">
+        <header class="process-header">
+          <p class="process-eyebrow">The artisanal journey</p>
+          <h2 id="process-title">From palm <em>to pour.</em></h2>
+        </header>
+
+        <!-- Dynamic Step Copy -->
+        <div class="process-copy" aria-live="polite">
+          <span class="process-step-num" aria-hidden="true">01</span>
+          <h3>Picked</h3>
+          <p>We hand-select mature golden coconuts from sustainable coastal groves — only the richest, cream-dense nuts make the grade.</p>
+          <div class="process-spec-tag" id="processSpecTag" title="Click for technical specifications">
+            <span>★</span> Estate Harvested · Brix: 7.4° (Click for Specs)
+          </div>
+        </div>
+
+        <!-- Animated SVG Farmer Illustration (4 Stages) -->
+        <div class="process-stage">
+          <svg class="farmer-svg" viewBox="250 110 500 440" role="img" aria-label="Illustration: Coconut processing stages">
+            <!-- Background Circular Halo & Shadow -->
+            <circle cx="500" cy="330" r="210" fill="rgba(255, 255, 255, 0.1)"></circle>
+            <circle cx="500" cy="330" r="168" fill="rgba(255, 255, 255, 0.08)"></circle>
+            <ellipse cx="500" cy="522" rx="250" ry="18" fill="rgba(8, 60, 110, 0.22)"></ellipse>
+
+            <!-- STAGE 1: PICKED -->
+            <g class="stage s-pick is-active">
+              <!-- Palm Tree Trunk & Fronds -->
+              <g>
+                <path d="M612 520 C624 430 580 300 500 200" stroke="#a26f3c" stroke-width="26" stroke-linecap="round" fill="none"></path>
+                <path d="M612 520 C624 430 580 300 500 200" stroke="#c9925b" stroke-width="18" stroke-linecap="round" fill="none" stroke-dasharray="10 16"></path>
+                <g class="palm-crown">
+                  <path d="M500 196 Q450 150 392 170 Q450 168 500 204 Z" fill="#3fa37a"></path>
+                  <path d="M500 196 Q470 132 410 118 Q466 150 502 202 Z" fill="#2f8a64"></path>
+                  <path d="M500 196 Q530 128 596 120 Q540 152 504 204 Z" fill="#3fa37a"></path>
+                  <path d="M500 196 Q566 160 626 190 Q562 178 504 206 Z" fill="#2f8a64"></path>
+                  <path d="M500 198 Q540 210 566 262 Q528 222 498 206 Z" fill="#3fa37a"></path>
+                </g>
+                <!-- Coconuts in Tree -->
+                <circle cx="506" cy="214" r="14" fill="#8a5532"></circle>
+                <circle cx="526" cy="208" r="14" fill="#8a5532"></circle>
+                <g class="pick-tree-nut">
+                  <circle cx="474" cy="192" r="14" fill="#8a5532"></circle>
+                </g>
+              </g>
+
+              <!-- Basket with Coconuts -->
+              <g>
+                <g class="pick-basket-nut">
+                  <circle cx="440" cy="446" r="13" fill="#8a5532"></circle>
+                </g>
+                <circle cx="418" cy="452" r="13" fill="#8a5532"></circle>
+                <circle cx="460" cy="454" r="13" fill="#8a5532"></circle>
+                <path d="M396 452 L484 452 L474 508 Q472 516 464 516 L416 516 Q408 516 406 508 Z" fill="#c9925b"></path>
+                <path d="M400 470 L480 470 M404 490 L476 490" stroke="#a26f3c" stroke-width="3"></path>
+              </g>
+
+              <!-- Nut falling into basket -->
+              <g class="pick-falling-nut">
+                <circle cx="432" cy="403" r="14" fill="#8a5532"></circle>
+              </g>
+
+              <!-- Front Arm Reaching & Picking -->
+              <g class="arm-front" transform="translate(378 282)">
+                <g class="upper">
+                  <rect x="-11" y="-6" width="22" height="76" rx="11" fill="#c98b5f"></rect>
+                  <rect x="-14" y="-12" width="28" height="36" rx="13" fill="#fdfbf6"></rect>
+                  <g transform="translate(0 66)">
+                    <g class="fore">
+                      <rect x="-10" y="-4" width="20" height="70" rx="10" fill="#c98b5f"></rect>
+                      <g class="pick-hand-nut">
+                        <circle cx="0" cy="72" r="14" fill="#8a5532"></circle>
+                      </g>
+                      <circle cx="0" cy="66" r="12" fill="#c98b5f"></circle>
+                      <circle cx="9" cy="60" r="5" fill="#c98b5f"></circle>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+
+            <!-- STAGE 2: CRACKED -->
+            <g class="stage s-crack">
+              <g>
+                <!-- Chopping Block -->
+                <path d="M478 438 L574 438 L580 512 Q580 520 570 520 L482 520 Q472 520 472 512 Z" fill="#a26f3c"></path>
+                <ellipse cx="526" cy="438" rx="48" ry="11" fill="#c9925b"></ellipse>
+                <ellipse cx="526" cy="438" rx="30" ry="6" fill="none" stroke="#a26f3c" stroke-width="2"></ellipse>
+
+                <!-- Whole Nut before impact -->
+                <g class="crack-whole">
+                  <circle cx="526" cy="416" r="20" fill="#8a5532"></circle>
+                </g>
+
+                <!-- Splitting Halves -->
+                <g transform="translate(526 418)">
+                  <g class="crack-half-l">
+                    <path d="M0 -20 A20 20 0 0 0 0 20 Z" fill="#8a5532"></path>
+                    <path d="M0 -15 A15 15 0 0 0 0 15 Z" fill="#fffdf7"></path>
+                  </g>
+                  <g class="crack-half-r">
+                    <path d="M0 -20 A20 20 0 0 1 0 20 Z" fill="#8a5532"></path>
+                    <path d="M0 -15 A15 15 0 0 1 0 15 Z" fill="#fffdf7"></path>
+                  </g>
+                </g>
+
+                <!-- Splash & Impact Pow Lines -->
+                <g class="crack-splash">
+                  <circle cx="510" cy="398" r="4" fill="#fffdf7"></circle>
+                  <circle cx="542" cy="396" r="3.5" fill="#fffdf7"></circle>
+                  <circle cx="526" cy="390" r="3" fill="#fffdf7"></circle>
+                  <circle cx="500" cy="410" r="2.5" fill="#fffdf7"></circle>
+                  <circle cx="552" cy="408" r="2.5" fill="#fffdf7"></circle>
+                </g>
+                <g class="crack-pow" stroke="#fff" stroke-width="3" stroke-linecap="round">
+                  <path d="M482 380 l-14 -10 M570 380 l14 -10 M526 366 v-16"></path>
+                </g>
+              </g>
+
+              <!-- Front Arm Swinging Cleaver -->
+              <g class="arm-front" transform="translate(378 282)">
+                <g class="upper">
+                  <rect x="-11" y="-6" width="22" height="76" rx="11" fill="#c98b5f"></rect>
+                  <rect x="-14" y="-12" width="28" height="36" rx="13" fill="#fdfbf6"></rect>
+                  <g transform="translate(0 66)">
+                    <g class="fore">
+                      <rect x="-10" y="-4" width="20" height="70" rx="10" fill="#c98b5f"></rect>
+                      <!-- Cleaver Handle & Blade -->
+                      <g>
+                        <rect x="-4" y="66" width="8" height="58" rx="3" fill="#c9925b"></rect>
+                        <rect x="-24" y="116" width="48" height="28" rx="7" fill="#a26f3c"></rect>
+                        <rect x="-24" y="116" width="10" height="28" rx="4" fill="#8a5a2f"></rect>
+                      </g>
+                      <circle cx="0" cy="66" r="12" fill="#c98b5f"></circle>
+                      <circle cx="9" cy="60" r="5" fill="#c98b5f"></circle>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+
+            <!-- STAGE 3: PRESSED -->
+            <g class="stage s-press">
+              <g>
+                <!-- Hydraulic Press Frame -->
+                <rect x="494" y="296" width="14" height="194" rx="4" fill="#9fb3c1"></rect>
+                <rect x="620" y="296" width="14" height="194" rx="4" fill="#9fb3c1"></rect>
+                <rect x="488" y="292" width="152" height="14" rx="5" fill="#dfe8ee"></rect>
+                <rect x="510" y="378" width="104" height="110" rx="10" fill="rgba(255, 255, 255, 0.7)" stroke="#9fb3c1" stroke-width="2"></rect>
+                <path d="M516 482 Q530 452 548 466 Q562 446 580 464 Q596 450 608 470 L608 482 Z" fill="#fffdf7"></path>
+
+                <!-- Moving Press Plate -->
+                <g class="press-plate">
+                  <rect x="557" y="300" width="10" height="70" fill="#9fb3c1"></rect>
+                  <rect x="514" y="366" width="96" height="12" rx="4" fill="#dfe8ee" stroke="#9fb3c1" stroke-width="2"></rect>
+                </g>
+                <rect x="476" y="488" width="176" height="32" rx="8" fill="#dfe8ee"></rect>
+
+                <!-- Spout & Dripping Milk into Glass Jug -->
+                <path d="M614 452 H692 V462" stroke="#9fb3c1" stroke-width="8" fill="none" stroke-linecap="round"></path>
+                <g class="press-drops">
+                  <ellipse cx="692" cy="474" rx="3.5" ry="5" fill="#fff"></ellipse>
+                  <ellipse cx="692" cy="490" rx="3" ry="4.5" fill="#fff"></ellipse>
+                </g>
+                <path d="M670 478 L716 478 L712 516 Q711 520 706 520 L680 520 Q675 520 674 516 Z" fill="rgba(255, 255, 255, 0.7)" stroke="#9fb3c1" stroke-width="2"></path>
+                <clipPath id="jug-clip">
+                  <path d="M671 479 L715 479 L711 516 L675 516 Z"></path>
+                </clipPath>
+                <g clip-path="url(#jug-clip)">
+                  <rect class="press-fill" x="668" y="486" width="50" height="34" fill="#fff"></rect>
+                </g>
+              </g>
+
+              <!-- Moving Press Lever -->
+              <g transform="translate(627.6 301.5)">
+                <g class="press-lever">
+                  <path d="M0 0 L-122 -53.7" stroke="#dfe8ee" stroke-width="10" stroke-linecap="round"></path>
+                  <circle cx="-122" cy="-53.7" r="9" fill="#48a9df"></circle>
+                  <circle cx="0" cy="0" r="8" fill="#9fb3c1"></circle>
+                </g>
+              </g>
+
+              <!-- Arm Operating Lever -->
+              <g class="arm-front" transform="translate(378 282)">
+                <g class="upper">
+                  <rect x="-11" y="-6" width="22" height="76" rx="11" fill="#c98b5f"></rect>
+                  <rect x="-14" y="-12" width="28" height="36" rx="13" fill="#fdfbf6"></rect>
+                  <g transform="translate(0 66)">
+                    <g class="fore">
+                      <rect x="-10" y="-4" width="20" height="70" rx="10" fill="#c98b5f"></rect>
+                      <circle cx="0" cy="66" r="12" fill="#c98b5f"></circle>
+                      <circle cx="9" cy="60" r="5" fill="#c98b5f"></circle>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+
+            <!-- STAGE 4: POURED -->
+            <g class="stage s-pour">
+              <g>
+                <!-- Bottling Stand -->
+                <rect x="530" y="448" width="150" height="12" rx="4" fill="#c9925b"></rect>
+                <rect x="542" y="460" width="10" height="60" rx="3" fill="#a26f3c"></rect>
+                <rect x="658" y="460" width="10" height="60" rx="3" fill="#a26f3c"></rect>
+
+                <!-- Premium Bottle -->
+                <clipPath id="bottle-clip">
+                  <path d="M590 338 L610 338 L610 356 Q624 362 624 378 L624 440 Q624 448 616 448 L584 448 Q576 448 576 440 L576 378 Q576 362 590 356 Z"></path>
+                </clipPath>
+                <g clip-path="url(#bottle-clip)">
+                  <rect x="570" y="330" width="60" height="120" fill="rgba(255, 255, 255, 0.35)"></rect>
+                  <rect class="pour-fill" x="570" y="360" width="60" height="90" fill="#fff"></rect>
+                </g>
+                <path d="M590 338 L610 338 L610 356 Q624 362 624 378 L624 440 Q624 448 616 448 L584 448 Q576 448 576 440 L576 378 Q576 362 590 356 Z" fill="none" stroke="#cfe3ef" stroke-width="2.5"></path>
+                <rect x="582" y="398" width="36" height="18" rx="3" fill="#48a9df" opacity="0.9"></rect>
+
+                <!-- Milk Stream -->
+                <path class="pour-stream" d="M574 309 C590 300 601 316 600 338" stroke="#fff" stroke-width="6" stroke-linecap="round" fill="none" pathLength="1"></path>
+
+                <!-- Pouring Jug -->
+                <g transform="translate(510 280)">
+                  <g class="pour-jug">
+                    <path d="M10 -18 C-8 -18 -8 18 10 18" stroke="#e6eef3" stroke-width="7" fill="none"></path>
+                    <path d="M10 -32 L56 -32 L64 -40 L67 -34 L60 -26 L60 26 Q60 34 52 34 L18 34 Q10 34 10 26 Z" fill="#f4f8fb" stroke="#c4d9e6" stroke-width="2"></path>
+                    <path d="M14 -12 H56" stroke="#dbe8f0" stroke-width="2"></path>
+                  </g>
+                </g>
+
+                <!-- Sparkles -->
+                <g class="pour-sparkle" fill="#fff">
+                  <path d="M640 360 l3 8 l8 3 l-8 3 l-3 8 l-3 -8 l-8 -3 l8 -3 Z"></path>
+                  <path d="M566 372 l2 5 l5 2 l-5 2 l-2 5 l-2 -5 l-5 -2 l5 -2 Z"></path>
+                </g>
+              </g>
+
+              <!-- Arm Pouring -->
+              <g class="arm-front" transform="translate(378 282)">
+                <g class="upper">
+                  <rect x="-11" y="-6" width="22" height="76" rx="11" fill="#c98b5f"></rect>
+                  <rect x="-14" y="-12" width="28" height="36" rx="13" fill="#fdfbf6"></rect>
+                  <g transform="translate(0 66)">
+                    <g class="fore">
+                      <rect x="-10" y="-4" width="20" height="70" rx="10" fill="#c98b5f"></rect>
+                      <circle cx="0" cy="66" r="12" fill="#c98b5f"></circle>
+                      <circle cx="9" cy="60" r="5" fill="#c98b5f"></circle>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+
+            <!-- FARMER BASE BODY & HEAD (SHARED ACROSS ALL 4 STAGES) -->
+            <g class="farmer-body">
+              <rect x="318" y="400" width="26" height="112" rx="12" fill="#245a80"></rect>
+              <rect x="342" y="400" width="26" height="112" rx="12" fill="#2c6a96"></rect>
+              <rect x="310" y="500" width="42" height="18" rx="9" fill="#10273a"></rect>
+              <rect x="338" y="502" width="48" height="18" rx="9" fill="#10273a"></rect>
+
+              <g class="farmer-upper">
+                <path d="M300 290 Q300 266 322 264 L358 264 Q382 266 384 290 L388 410 Q388 420 378 420 L304 420 Q294 420 295 410 Z" fill="#fdfbf6"></path>
+                <path d="M308 312 L380 312 L384 418 Q384 426 376 426 L308 426 Q300 426 300 418 Z" fill="#173b54"></path>
+                <path d="M313 314 L326 268 M375 314 L360 268" stroke="#173b54" stroke-width="6" stroke-linecap="round"></path>
+                <rect x="322" y="364" width="40" height="26" rx="7" fill="rgba(255, 255, 255, 0.1)"></rect>
+
+                <!-- Head & Animated Blinking Eyes -->
+                <rect x="331" y="244" width="20" height="28" rx="8" fill="#b07650"></rect>
+                <g class="farmer-head">
+                  <circle cx="342" cy="218" r="36" fill="#c98b5f"></circle>
+                  <circle cx="309" cy="222" r="8" fill="#b07650"></circle>
+                  <!-- Hair -->
+                  <path d="M306 216 Q302 180 340 177 Q380 176 381 208 Q366 196 348 198 Q328 201 316 214 Q311 218 306 216 Z" fill="#2a1c15"></path>
+                  <!-- Headband -->
+                  <path d="M306 205 Q342 186 380 201 L380 211 Q342 197 307 215 Z" fill="#48a9df"></path>
+                  <path d="M310 206 l-14 -4 l4 10 Z" fill="#48a9df"></path>
+                  <!-- Eyebrows -->
+                  <path d="M346 211 q6 -3 12 0 M365 210 q6 -3 11 1" stroke="#2a1c15" stroke-width="2.6" stroke-linecap="round" fill="none"></path>
+                  <!-- Eyes -->
+                  <g class="farmer-eyes">
+                    <ellipse cx="352" cy="222" rx="3.2" ry="4" fill="#1b1b1b"></ellipse>
+                    <ellipse cx="370" cy="221" rx="3.2" ry="4" fill="#1b1b1b"></ellipse>
+                  </g>
+                  <!-- Smile -->
+                  <path d="M354 238 q9 7 18 -1" stroke="#5a2e1e" stroke-width="2.6" fill="none" stroke-linecap="round"></path>
+                  <circle cx="362" cy="234" r="5" fill="#e9876d" opacity="0.35"></circle>
+                </g>
+              </g>
+            </g>
+          </svg>
+        </div>
+
+        <!-- Interactive Progress Scrubbing Bar -->
+        <div class="process-progress" aria-hidden="true">
+          <span class="process-count"><strong>01</strong> / 04</span>
+          <div class="process-line">
+            <span class="process-line-fill"></span>
+            <span class="process-dot is-on" style="left: 0%"><span class="process-dot-label">Picked</span></span>
+            <span class="process-dot" style="left: 33.33%"><span class="process-dot-label">Cracked</span></span>
+            <span class="process-dot" style="left: 66.66%"><span class="process-dot-label">Pressed</span></span>
+            <span class="process-dot" style="left: 100%"><span class="process-dot-label">Poured</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         WAYS TO ENJOY SECTION (INTERACTIVE PAIRINGS & RECIPE MODAL)
+         ==================================================================== -->
+    <section class="uses" id="uses" aria-labelledby="uses-title">
+      <!-- Transition Wave -->
+      <svg class="uses-wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+        <path class="uses-wave-back" d="M0,62 C220,96 420,100 640,72 C860,44 1060,38 1260,62 C1340,72 1400,76 1440,74 C1500,72 1550,70 1600,70 L1600,120 L0,120 Z"></path>
+        <path class="uses-wave-front" d="M0,80 C240,104 460,106 700,86 C940,66 1140,62 1320,80 C1380,86 1420,88 1440,88 C1500,88 1550,86 1600,86 L1600,120 L0,120 Z"></path>
+      </svg>
+
+      <div class="uses-inner">
+        <header class="uses-header">
+          <p class="uses-eyebrow">Culinary pairings</p>
+          <h2 id="uses-title">Made for <em>every pour.</em></h2>
+        </header>
+
+        <!-- Interactive Pairing Rows -->
+        <div class="uses-list">
+          <!-- Row 1: Coffee -->
+          <div class="use-row" data-index="0">
+            <span class="use-num">01</span>
+            <span class="use-title">Coffee &amp; lattes</span>
+            <span class="use-text">Silky micro-foam, zero curdling, naturally sweet finish.</span>
+            <span class="use-recipe-btn">View Barista Recipe ↗</span>
+            <span class="use-thumb" aria-hidden="true">
+              <img src="assets/coffee.png" alt="Coffee and coconut milk" />
+            </span>
+            <span class="use-arrow" aria-hidden="true">↗</span>
+          </div>
+
+          <!-- Row 2: Smoothies -->
+          <div class="use-row" data-index="1">
+            <span class="use-num">02</span>
+            <span class="use-title">Smoothies &amp; shakes</span>
+            <span class="use-text">Velvety thick texture and clean MCT energy every morning.</span>
+            <span class="use-recipe-btn">View Recipe ↗</span>
+            <span class="use-thumb" aria-hidden="true">
+              <img src="assets/shake.png" alt="Tropical coconut smoothie" />
+            </span>
+            <span class="use-arrow" aria-hidden="true">↗</span>
+          </div>
+
+          <!-- Row 3: Oats -->
+          <div class="use-row" data-index="2">
+            <span class="use-num">03</span>
+            <span class="use-title">Oats &amp; cereal</span>
+            <span class="use-text">Nourishing breakfast bowls with rich, comforting creaminess.</span>
+            <span class="use-recipe-btn">View Recipe ↗</span>
+            <span class="use-thumb" aria-hidden="true">
+              <img src="assets/oats.png" alt="Coconut milk oatmeal" />
+            </span>
+            <span class="use-arrow" aria-hidden="true">↗</span>
+          </div>
+
+          <!-- Row 4: Baking -->
+          <div class="use-row" data-index="3">
+            <span class="use-num">04</span>
+            <span class="use-title">Desserts &amp; baking</span>
+            <span class="use-text">Your secret ingredient for luscious dairy-free culinary creations.</span>
+            <span class="use-recipe-btn">View Recipe ↗</span>
+            <span class="use-thumb" aria-hidden="true">
+              <img src="assets/dessert.png" alt="Coconut dessert" />
+            </span>
+            <span class="use-arrow" aria-hidden="true">↗</span>
+          </div>
+
+          <!-- Cursor-Following Floating Preview -->
+          <div class="use-float" aria-hidden="true">
+            <img src="assets/coffee.png" alt="" />
+            <img src="assets/shake.png" alt="" />
+            <img src="assets/oats.png" alt="" />
+            <img src="assets/dessert.png" alt="" />
+          </div>
+        </div>
+
+        <!-- ================================================================
+             PURITY LAB & COMPARATIVE BENCHMARK
+             ================================================================ -->
+        <div class="purity-section" id="purity">
+          <div class="purity-grid">
+            <div class="purity-copy">
+              <span class="purity-badge" id="purityLabBadgeBtn">Purity Lab Tested ⓘ</span>
+              <h3>Uncompromised Clean Label Quality.</h3>
+              <p>
+                Most commercial plant milks dilute with 80% tap water and bind with synthetic gums like gellan, xanthan, and carrageenan. Cocolush is simply pure, cold-pressed whole coconut meat and natural coconut water.
+              </p>
+
+              <div class="purity-stats">
+                <div class="purity-stat-item" data-stat="organic">
+                  <div class="purity-stat-val">100%</div>
+                  <div class="purity-stat-label">Organic Harvest &nbsp;ⓘ</div>
+                </div>
+                <div class="purity-stat-item" data-stat="gums">
+                  <div class="purity-stat-val">0%</div>
+                  <div class="purity-stat-label">Gums &amp; Emulsifiers &nbsp;ⓘ</div>
+                </div>
+                <div class="purity-stat-item" data-stat="mct">
+                  <div class="purity-stat-val">16g</div>
+                  <div class="purity-stat-label">Clean MCT Fats &nbsp;ⓘ</div>
+                </div>
+              </div>
+
+              <button class="purity-nutrition-btn" id="viewNutritionFactsBtn" title="Inspect full nutrition breakdown">
+                <span>📊 View Full FDA Nutrition Facts</span>
+                <span class="btn-arrow">&rarr;</span>
+              </button>
+            </div>
+
+            <!-- Comparison Table Card -->
+            <div class="purity-comparison-card">
+              <div class="comparison-header">
+                <span>The Clean Milk Benchmark</span>
+                <span style="font-size: 12px; color: var(--ink-soft); font-weight: 600;">Lab Certified 2026</span>
+              </div>
+              <table class="comparison-table">
+                <thead>
+                  <tr>
+                    <th>Ingredient / Metric</th>
+                    <th class="cocolush-col">Cocolush</th>
+                    <th>Standard Coconut</th>
+                    <th>Almond Milk</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="clickable-row" data-stat="meat" title="Click to view whole kernel extraction science">
+                    <td><strong>Pure Coconut Meat &nbsp;ⓘ</strong></td>
+                    <td class="cocolush-col"><span class="tag-check">✔</span> 100% Single-Origin</td>
+                    <td><span class="tag-cross">✖</span> ~18% Diluted</td>
+                    <td><span class="tag-cross">✖</span> 0%</td>
+                  </tr>
+                  <tr class="clickable-row" data-stat="preservatives" title="Click to view zero preservatives proof">
+                    <td><strong>Chemical Preservatives &nbsp;ⓘ</strong></td>
+                    <td class="cocolush-col"><span class="tag-check">✔</span> 0 (Zero)</td>
+                    <td>Potassium Sorbate</td>
+                    <td>Sodium Benzoate</td>
+                  </tr>
+                  <tr class="clickable-row" data-stat="gums" title="Click to view gum-free digestive benefits">
+                    <td><strong>Industrial Gums &nbsp;ⓘ</strong></td>
+                    <td class="cocolush-col"><span class="tag-check">✔</span> Zero Gums</td>
+                    <td>Guar &amp; Xanthan</td>
+                    <td>Gellan Gum</td>
+                  </tr>
+                  <tr class="clickable-row" data-stat="barista" title="Click to view micro-foam thermal stability science">
+                    <td><strong>Micro-Foam Stability &nbsp;ⓘ</strong></td>
+                    <td class="cocolush-col"><span class="tag-check">✔</span> Barista Velvet</td>
+                    <td>Separates quickly</td>
+                    <td>Watery foam</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================================================================
+             VERIFIED REVIEWS WITH INTERACTIVE FILTERS
+             ================================================================ -->
+        <div class="reviews-section" id="reviews">
+          <div class="reviews-header">
+            <span class="purity-badge">Critic &amp; Barista Acclaim</span>
+            <h2>Loved by Purists.</h2>
+            <div class="reviews-score">
+              <span class="stars-gold">★★★★★</span>
+              <span><strong>4.92 / 5.0</strong> based on 2,480+ verified bottle ratings</span>
+            </div>
+
+            <!-- Review Filter Buttons -->
+            <div class="reviews-filter-bar">
+              <button class="review-filter-btn is-active" data-filter="all">All Reviews (2,480)</button>
+              <button class="review-filter-btn" data-filter="barista">Baristas &amp; Cafes</button>
+              <button class="review-filter-btn" data-filter="nutrition">Nutritionists</button>
+              <button class="review-filter-btn" data-filter="chef">Pastry Chefs</button>
+            </div>
+          </div>
+
+          <div class="reviews-grid">
+            <div class="review-card" data-category="barista" data-review="barista" title="Click to view full Barista evaluation">
+              <p class="review-text">
+                "Cocolush has revolutionized our plant-based espresso program. It stretches beautifully like dairy whole milk, without any chemical stabilizers or overpowering off-flavors."
+              </p>
+              <div class="review-author">
+                <div class="review-avatar">M</div>
+                <div class="review-info">
+                  <strong>Matteo Rossi</strong>
+                  <span>Head Roaster &amp; Barista Champion &nbsp;ⓘ</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="review-card" data-category="nutrition" data-review="nutrition" title="Click to view Nutritionist evaluation">
+              <p class="review-text">
+                "The cleanest coconut milk on the market today. It genuinely tastes like you just cracked open a fresh coconut by the shore. Essential for morning smoothies and golden lattes."
+              </p>
+              <div class="review-author">
+                <div class="review-avatar">A</div>
+                <div class="review-info">
+                  <strong>Aria Chen</strong>
+                  <span>Holistic Nutritionist &amp; Author &nbsp;ⓘ</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="review-card" data-category="chef" data-review="chef" title="Click to view Pastry Chef evaluation">
+              <p class="review-text">
+                "In my pastry kitchen, fat stability and pure coconut aroma are paramount. Cocolush gives our panna cotta and vegan ganache an unrivaled luxury mouthfeel."
+              </p>
+              <div class="review-author">
+                <div class="review-avatar">E</div>
+                <div class="review-info">
+                  <strong>Chef Émile Laurent</strong>
+                  <span>Pastry Chef, Le Jardin &nbsp;ⓘ</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================================================================
+             NEW FAQ ACCORDION SECTION
+             ================================================================ -->
+        <div class="faq-section" id="faq">
+          <div class="faq-header">
+            <span class="purity-badge">Got Questions?</span>
+            <h2>Frequently Asked</h2>
+          </div>
+
+          <div class="faq-accordion">
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>How long does Cocolush stay fresh once opened?</span>
+                <span class="faq-chevron">&darr;</span>
+              </button>
+              <div class="faq-answer">
+                Because we use zero artificial preservatives, keep your Cocolush bottle refrigerated at 2°C–4°C. Once opened, consume within 7–10 days for peak velvety freshness. Unopened chilled bottles remain fresh for up to 45 days.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>Does Cocolush steam well for latte art?</span>
+                <span class="faq-chevron">&darr;</span>
+              </button>
+              <div class="faq-answer">
+                Yes! Our <em>Barista Reserve</em> edition is specifically formulated with natural coconut lipid ratios that whip into silky, elastic micro-foam up to 65°C without splitting or curdling in specialty coffee.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>Are there any added gums, carrageenan, or sugars?</span>
+                <span class="faq-chevron">&darr;</span>
+              </button>
+              <div class="faq-answer">
+                Never. We believe in total ingredient transparency: 100% pure cold-pressed coconut kernel and pure coconut water. No guar gum, no xanthan gum, no emulsifiers, and zero cane sugar.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>How does chilled doorstep delivery work?</span>
+                <span class="faq-chevron">&darr;</span>
+              </button>
+              <div class="faq-answer">
+                All Cocolush boxes are shipped in 100% recyclable insulated thermal liners with eco-friendly frozen gel packs, guaranteeing cold chain integrity directly to your doorstep.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================================================================
+             CTA CARD (PURCHASE & BUNDLE SELECTOR)
+             ================================================================ -->
+        <div class="cta-card" id="cta">
+          <div class="cta-copy">
+            <p class="cta-eyebrow">Single estate. Zero preservatives. Just lovely.</p>
+            <h2>Bring home<br/><em>the goodness.</em></h2>
+            <p class="cta-text">
+              Silky, nourishing coconut milk crafted for your fridge, your morning flat white, and everything in between. Delivered chilled to your doorstep.
+            </p>
+
+            <!-- Pack selector -->
+            <div class="cta-pack-selector">
+              <button class="cta-pack-btn" data-pack="single">Single (850ml) · $5.99</button>
+              <button class="cta-pack-btn is-active" data-pack="6pack">6-Pack Taster · $29.99 (Save 15%)</button>
+              <button class="cta-pack-btn" data-pack="12pack">12-Pack Pantry · $54.99 (Save 22%)</button>
+            </div>
+
+            <!-- Subscribe & Save 15% Frequency Toggle -->
+            <div class="purchase-frequency-selector">
+              <button class="freq-btn is-active" id="btnFreqOneTime" type="button">
+                <span>One-Time Order</span>
+              </button>
+              <button class="freq-btn" id="btnFreqSubscribe" type="button">
+                <span>★ Subscribe &amp; Save 15%</span>
+                <small class="freq-badge">Auto-ship 2 wks</small>
+              </button>
+            </div>
+
+            <a class="cta-button" href="#cta" id="ctaOrderChilledBtn">
+              <span>Order Chilled Pack</span>
+              <svg viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M4 10h11M10 5l5 5-5 5"></path>
+              </svg>
+            </a>
+          </div>
+
+          <div class="cta-visual" aria-hidden="true">
+            <div class="cta-glow"></div>
+            <div class="cta-nut cta-nut-l">
+              <img src="assets/left piece.png" alt="" />
+            </div>
+            <div class="cta-nut cta-nut-r">
+              <img src="assets/right piece.png" alt="" />
+            </div>
+            <div class="cta-bottle">
+              <img src="assets/bottle.png" alt="Cocolush bottle" />
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         FOOTER
+         ==================================================================== -->
+    <footer class="site-footer">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img class="footer-logo" src="assets/logo.svg" alt="Cocolush" width="154" height="52" />
+          <p>
+            Creamy, organic coconut milk with zero preservatives. Goodness, in its purest form. Sustainably harvested from single-estate coastal palms.
+          </p>
+        </div>
+
+        <nav class="footer-cols" aria-label="Footer">
+          <div class="footer-col">
+            <p class="footer-col-title">Explore</p>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#story">Our story</a></li>
+              <li><a href="#goodness">Goodness</a></li>
+              <li><a href="#process">The process</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <p class="footer-col-title">Experience</p>
+            <ul>
+              <li><a href="#uses">Ways to enjoy</a></li>
+              <li><a href="#purity">Purity Lab</a></li>
+              <li><a href="#reviews">Verified Reviews</a></li>
+              <li><a href="#cta">Order Chilled</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <p class="footer-col-title">Connect</p>
+            <ul>
+              <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+              <li><a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a></li>
+              <li><a href="https://youtube.com" target="_blank" rel="noopener">YouTube</a></li>
+              <li><a href="mailto:hello@cocolush.com">hello@cocolush.com</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Cocolush Inc. All rights reserved. Made with love &amp; coconuts.</span>
+        <a href="#home" class="footer-top-link">Back to top &uarr;</a>
+      </div>
+
+      <p class="footer-wordmark" aria-hidden="true">cocolush</p>
+    </footer>
+
+  </main>
+
+  <!-- ======================================================================
+       SLIDE-OVER SHOPPING CART DRAWER
+       ====================================================================== -->
+  <div class="drawer-backdrop"></div>
+  <aside class="cart-drawer" aria-label="Shopping Bag">
+    <div class="drawer-header">
+      <h3 class="drawer-title" id="drawerTitle">Your Chilled Bag (<span id="drawerCountVal">1</span>)</h3>
+      <button class="drawer-close" aria-label="Close bag">&times;</button>
+    </div>
+
+    <div class="shipping-bar-wrap">
+      <div class="drawer-delivery-badge">
+        <span>🚚 Order in next <strong>2h 15m</strong> for chilled delivery by <strong>Tomorrow, 10 AM</strong></span>
+      </div>
+      <div class="shipping-progress">
+        <div class="shipping-progress-fill"></div>
+      </div>
+    </div>
+
+    <div class="drawer-body" id="cartDrawerBody">
+      <div class="cart-item" id="cartActiveItem">
+        <div class="cart-item-img">
+          <img src="assets/bottle.png" alt="Cocolush bottle" />
+        </div>
+        <div class="cart-item-info">
+          <strong>Cocolush Pure Original</strong>
+          <span id="cartItemPackDesc">6-Pack (850ml Glass Bottles) · Chilled</span>
+          <div class="cart-item-qty">
+            <button class="qty-btn qty-minus" id="cartQtyMinusBtn" aria-label="Decrease quantity">&minus;</button>
+            <strong id="cartItemQtyVal">1</strong>
+            <button class="qty-btn qty-plus" id="cartQtyPlusBtn" aria-label="Increase quantity">&plus;</button>
+            <span class="cart-item-price" id="cartItemPriceVal">$29.99</span>
+          </div>
+          <button class="cart-item-remove-btn" id="cartItemRemoveBtn" title="Remove item from bag">
+            <span>&times; Remove from bag</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="cart-empty-state" id="cartEmptyState" style="display: none;">
+        <p>Your chilled bag is currently empty.</p>
+        <button class="cta-button" id="cartShopNowBtn" style="justify-content: center; margin: 0 auto;">
+          <span>Explore Chilled Packs &rarr;</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="drawer-footer" id="cartDrawerFooter">
+      <!-- Subscribe & Save 15% Toggle inside Bag -->
+      <div class="drawer-subscribe-bar">
+        <label class="drawer-subscribe-label">
+          <input type="checkbox" id="drawerSubscribeCheckbox" />
+          <span class="custom-check-pill"></span>
+          <span class="sub-text">
+            <strong>Subscribe &amp; Save an extra 15%</strong>
+            <small>Auto-delivered fresh every 2 weeks · Skip or cancel anytime</small>
+          </span>
+        </label>
+      </div>
+
+      <div class="drawer-subtotal">
+        <span>Subtotal</span>
+        <span id="cartSubtotalVal">$29.99</span>
+      </div>
+      <button class="checkout-btn" id="checkoutBtn">Proceed to Chilled Checkout &rarr;</button>
+    </div>
+  </aside>
+
+  <!-- ======================================================================
+       UNIVERSAL INFORMATION MODAL (FOR ALL BUTTONS & BADGES)
+       ====================================================================== -->
+  <div class="modal-overlay" id="appInfoModalOverlay">
+    <div class="app-modal">
+      <div class="modal-header">
+        <button class="modal-close-btn" aria-label="Close info">&times;</button>
+        <div>
+          <h3 id="infoModalTitle" style="font-family: var(--font-display); font-size: 26px; font-weight: 800; margin-bottom: 6px;">Information</h3>
+          <p id="infoModalBadge" style="font-size: 13px; opacity: 0.9;">Clean Label Certified</p>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <p id="infoModalText" style="color: var(--ink); font-size: 15.5px; line-height: 1.65; margin-bottom: 24px;">
+          Details will appear here.
+        </p>
+
+        <div id="infoModalSpecs" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px;">
+          <!-- Dynamically populated stats -->
+        </div>
+
+        <button class="cta-button" id="infoModalActionBtn" style="width: 100%; justify-content: center; margin-top: 0;">
+          <span>Explore More</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       3D BOTTLE SHOWCASE MODAL (INSPECT 850ML BOTTLE)
+       ====================================================================== -->
+  <div class="modal-overlay" id="bottleShowcaseModalOverlay">
+    <div class="app-modal showcase-modal">
+      <div class="showcase-visual">
+        <img src="assets/bottle.png" alt="Cocolush 850ml bottle packaging" />
+      </div>
+
+      <div class="showcase-details">
+        <button class="modal-close-btn" style="color: var(--ink); background: rgba(23, 59, 84, 0.08); top: 16px; right: 16px;">&times;</button>
+        <span class="showcase-tag">Artisanal Packaging</span>
+        <h3 style="font-family: var(--font-display); font-size: 28px; font-weight: 800; color: var(--ink); margin-bottom: 6px;">Cocolush 850ml</h3>
+        <p style="color: var(--ink-soft); font-size: 14.5px; line-height: 1.6;">
+          Engineered in UV-protective, recyclable glass with airtight sealed blue crown cap. Zero plastics, zero BPA.
+        </p>
+
+        <ul class="showcase-specs-list">
+          <li><span>Net Volume</span><strong>850ml (28.7 fl oz)</strong></li>
+          <li><span>Fat Content</span><strong>Low Fat · Balanced MCTs</strong></li>
+          <li><span>Preservatives</span><strong>0% (Zero Added)</strong></li>
+          <li><span>Origin</span><strong>Single-Estate Coastal Palms</strong></li>
+          <li><span>Storage</span><strong>Refrigerate at 2°–4°C</strong></li>
+        </ul>
+
+        <button class="cta-button" id="showcaseAddBagBtn" style="justify-content: center; margin-top: 10px;">
+          <span>Add 850ml Bottle to Bag &rarr;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       INTERACTIVE RECIPE CARD MODAL
+       ====================================================================== -->
+  <div class="modal-overlay" id="recipeModalOverlay">
+    <div class="app-modal">
+      <div class="modal-header">
+        <button class="modal-close-btn recipe-modal-close" aria-label="Close recipe">&times;</button>
+        <div>
+          <h3 id="recipeModalTitle" style="font-family: var(--font-display); font-size: 26px; font-weight: 800; margin-bottom: 4px;">Recipe</h3>
+          <p id="recipeModalTag" style="font-size: 13px; opacity: 0.9;">Artisanal Pairing</p>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+          <span style="font-size: 12px; font-weight: 700; padding: 5px 14px; border-radius: 999px; background: var(--cream); color: var(--ink);" id="recipeModalPrep">⏱ Prep: 5 mins</span>
+          <span style="font-size: 12px; font-weight: 700; padding: 5px 14px; border-radius: 999px; background: var(--cream); color: var(--ink);" id="recipeModalDiff">★ Barista Level</span>
+        </div>
+
+        <p id="recipeModalDesc" style="color: var(--ink); font-size: 15px; line-height: 1.6; margin-bottom: 20px;">
+          Description
+        </p>
+
+        <h4 style="font-family: var(--font-display); font-size: 17px; font-weight: 800; margin-bottom: 10px;">Ingredients</h4>
+        <ul id="recipeIngredientsList" style="list-style: none; display: grid; gap: 8px; font-size: 14.5px; color: var(--ink-soft); margin-bottom: 24px;"></ul>
+
+        <h4 style="font-family: var(--font-display); font-size: 17px; font-weight: 800; margin-bottom: 10px;">Method</h4>
+        <ol id="recipeStepsList" style="padding-left: 20px; display: grid; gap: 12px; font-size: 14.5px; color: var(--ink-soft); margin-bottom: 24px;"></ol>
+
+        <button class="cta-button" id="recipeAddToCartBtn" style="width: 100%; justify-content: center;">
+          <span>Get Cocolush for this Recipe &rarr;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       21st.dev INTERACTIVE "FIND YOUR POUR" TASTE QUIZ MODAL
+       ====================================================================== -->
+  <div class="modal-overlay" id="tasteQuizModalOverlay">
+    <div class="app-modal taste-quiz-modal">
+      <div class="modal-header">
+        <button class="modal-close-btn quiz-modal-close" aria-label="Close quiz">&times;</button>
+        <div>
+          <span class="quiz-badge-step">Interactive Taste Matcher</span>
+          <h3 style="font-family: var(--font-display); font-size: 26px; font-weight: 800; margin-top: 4px;">Find Your Ideal Pour ✨</h3>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 18px;">
+          Select how you love to enjoy your plant milk to reveal your tailored Cocolush recipe:
+        </p>
+
+        <div class="quiz-options-grid">
+          <button class="quiz-card" data-match="barista">
+            <span class="quiz-card-icon">☕</span>
+            <div class="quiz-card-info">
+              <strong>Morning Coffee &amp; Espresso Lattes</strong>
+              <p>Needs ultra-dense micro-foam, velvety texture &amp; doesn't separate with hot acidic coffee.</p>
+            </div>
+            <span class="quiz-match-pill">Match: Barista Reserve</span>
+          </button>
+
+          <button class="quiz-card" data-match="pure">
+            <span class="quiz-card-icon">🥛</span>
+            <div class="quiz-card-info">
+              <strong>Pure Chilled Glass &amp; Granola</strong>
+              <p>Balanced tropical sweetness, clean single-estate aroma, refreshing everyday hydration.</p>
+            </div>
+            <span class="quiz-match-pill">Match: Pure Original</span>
+          </button>
+
+          <button class="quiz-card" data-match="vanilla">
+            <span class="quiz-card-icon">🌿</span>
+            <div class="quiz-card-info">
+              <strong>Smoothies, Oats &amp; Clean Baking</strong>
+              <p>Infused with real cured Madagascar bourbon vanilla beans and delicate floral sweetness.</p>
+            </div>
+            <span class="quiz-match-pill">Match: Madagascar Vanilla</span>
+          </button>
+
+          <button class="quiz-card" data-match="keto">
+            <span class="quiz-card-icon">🥑</span>
+            <div class="quiz-card-info">
+              <strong>Keto, Low-Carb &amp; Fasting Fuel</strong>
+              <p>0g net sugar, max clean C8/C10 MCT lipids for sustained cognitive focus &amp; ketosis.</p>
+            </div>
+            <span class="quiz-match-pill">Match: Raw Keto</span>
+          </button>
+        </div>
+
+        <div class="quiz-result-box" id="quizResultBox" style="display: none;">
+          <div class="quiz-result-header">
+            <span class="quiz-result-badge">⚡ Perfect Match Found</span>
+            <h4 id="quizResultTitle" style="font-family: var(--font-display); font-size: 22px; font-weight: 800; margin-top: 6px;">Barista Reserve</h4>
+            <p id="quizResultDesc" style="font-size: 14px; color: var(--ink-soft); margin-top: 4px;"></p>
+          </div>
+          <div class="quiz-result-actions">
+            <button class="cta-button" id="quizApplyBtn" style="flex: 1; justify-content: center; background: rgba(23, 59, 84, 0.1); color: var(--ink); box-shadow: none;">
+              <span>Tune Spotlight &rarr;</span>
+            </button>
+            <button class="cta-button shimmer-btn" id="quizAddCartBtn" style="flex: 1.2; justify-content: center;">
+              <span>Add 6-Pack to Bag</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Bundle -->
+  <script src="app.js"></script>
+</body>
+</html>
