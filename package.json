@@ -4,8 +4,7 @@
   "description": "Cocolush — Pure coconut milk, made lovely. Premium interactive artisanal website.",
   "scripts": {
     "start": "npx serve -l 3000 .",
-    "dev": "npx serve -l 3000 .",
-    "build": "echo 'Build successful. Static files ready in root.'"
+    "dev": "npx serve -l 3000 ."
   },
   "keywords": [
     "cocolush",
