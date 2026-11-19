@@ -3451,22 +3451,44 @@ svg {
   }
 
   .callouts {
-    width: auto;
-    left: 20px;
-    right: 20px;
-    top: auto;
-    bottom: 80px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 16px;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 5;
   }
 
   .callout {
-    width: 44%;
+    position: absolute;
+    width: min(46vw, 230px);
+    left: clamp(14px, 4vw, 24px);
+    pointer-events: auto;
+  }
+
+  .callout-1 {
+    top: auto;
+    bottom: 37%;
+  }
+
+  .callout-2 {
+    top: auto;
+    bottom: 25%;
+  }
+
+  .callout-3 {
+    top: auto;
+    bottom: 13%;
   }
 
   .callout-line {
     display: none;
+  }
+
+  .callout strong {
+    font-size: 16px;
+  }
+
+  .callout-text {
+    font-size: 11.5px;
   }
 
   .marquee {
@@ -3622,17 +3644,9 @@ svg {
     right: 14px;
   }
 
-  .callouts {
-    left: 14px;
-    right: 14px;
-    bottom: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
   .callout {
-    width: 100%;
+    width: min(48vw, 200px);
+    left: 12px;
   }
 
   .modern-callout-card {

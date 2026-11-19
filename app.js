@@ -376,7 +376,7 @@
   function buildWavePathOptimized(cfg, timeSec, scrollP, ampMult) {
     const n = (2 * Math.PI) / 1440;
     let d = "";
-    for (let x = 0; x <= 1440; x += 30) {
+    for (let x = 0; x <= 1440; x += 12) {
       const y = cfg.base + cfg.amp * ampMult * (
         0.65 * Math.sin(x * n * cfg.f1 + timeSec * cfg.s1 + cfg.phase + 9 * scrollP) +
         0.35 * Math.sin(x * n * cfg.f2 + timeSec * cfg.s2 - 6 * scrollP)
@@ -390,34 +390,25 @@
     const waveSvg = document.querySelector('.milk-wave');
     if (!waveSvg) return;
 
-    if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          state.isWaveVisible = entry.isIntersecting;
-        });
-      }, { threshold: 0.05 });
-      observer.observe(waveSvg);
-    }
-
     const waveGroups = waveSvg.querySelectorAll('g');
     const startTime = performance.now();
 
     function updateWaves(now) {
-      if (state.isWaveVisible) {
-        const timeSec = (now - startTime) / 1000;
-        const ampMult = 0.45 + 0.75 * Math.sin(Math.PI * Math.min(1, cachedScrollP));
+      const timeSec = (now - startTime) / 1000;
+      const h = Math.min(1, Math.max(0, cachedScrollP / 0.7));
+      const ampMult = 0.45 + 0.75 * Math.sin(Math.PI * h);
 
-        waveConfigs.forEach((cfg, idx) => {
-          const g = waveGroups[idx];
-          if (!g) return;
-          const fillPath = g.querySelector('path:first-child');
-          const crestPath = g.querySelector('.milk-crest');
+      waveConfigs.forEach((cfg, idx) => {
+        const g = waveGroups[idx];
+        if (!g) return;
+        const fillPath = g.querySelector('path:first-child');
+        const crestPath = g.querySelector('.milk-crest');
 
-          const lineD = buildWavePathOptimized(cfg, timeSec, cachedScrollP, ampMult);
-          if (fillPath) fillPath.setAttribute('d', `${lineD}L1440,404L0,404Z`);
-          if (crestPath) crestPath.setAttribute('d', lineD);
-        });
-      }
+        const lineD = buildWavePathOptimized(cfg, timeSec, cachedScrollP, ampMult);
+        if (fillPath) fillPath.setAttribute('d', `${lineD}L1440,404L0,404Z`);
+        if (crestPath) crestPath.setAttribute('d', lineD);
+      });
+
       requestAnimationFrame(updateWaves);
     }
 
@@ -620,11 +611,11 @@
         cachedScrollP = Math.min(1, Math.max(0, relativeY / cachedTotal));
       }
 
-      // Smooth progression across entire track without freeze dead zone
-      const t = cachedScrollP;
+      // Map scroll progress 0..0.7 to 0..1 (matching Cocuket reference choreography)
+      const t = Math.min(1, Math.max(0, cachedScrollP / 0.7));
 
       // Hero Elements Fade
-      const heroOpacity = Math.max(0, 1 - t * 1.4);
+      const heroOpacity = Math.max(0, 1 - cachedScrollP / (0.8 * 0.7));
       if (heroCopy) {
         heroCopy.style.opacity = heroOpacity;
         heroCopy.style.pointerEvents = heroOpacity <= 0.05 ? 'none' : 'auto';
@@ -644,12 +635,12 @@
         }
       }
 
-      // Coconut Pieces Movement
+      // Coconut Pieces Movement (Exact Cocuket trajectory: P=[-7vw], S=[-6vh], T=[-14deg], M=[7vw], k=[-10vh], A=[16deg])
       if (leftNut) {
-        leftNut.style.transform = `translate3d(${-8 * t}vw, ${-8 * t}vh, 0) rotate(${-16 * t}deg)`;
+        leftNut.style.transform = `translate3d(${-7 * t}vw, ${-6 * t}vh, 0) rotate(${-14 * t}deg)`;
       }
       if (rightNut) {
-        rightNut.style.transform = `translate3d(${8 * t}vw, ${-12 * t}vh, 0) rotate(${18 * t}deg)`;
+        rightNut.style.transform = `translate3d(${7 * t}vw, ${-10 * t}vh, 0) rotate(${16 * t}deg)`;
       }
 
       // Bottle Motion: Hero center -> Spotlight right position
@@ -668,12 +659,12 @@
 
       bottle.style.transform = `translate3d(${bottleX}vw, ${bottleY}vh, 0) scale(${bottleScale}) rotate(${bottleRot}deg)`;
 
-      // Story Panel Sliding Up (145% -> 0%) continuously
+      // Story Panel Sliding Up (145% -> 0%) completes smoothly by scroll = 0.7
       const storyY = (1 - t) * 145;
-      storyPanel.style.transform = `translate3d(0, ${storyY}%, 0)`;
+      storyPanel.style.transform = `translate3d(0, ${storyY.toFixed(2)}%, 0)`;
 
       // Spotlight Copy Masked Reveal
-      if (t > 0.45) {
+      if (t > 0.65) {
         spotlightTitleSpans.forEach(span => {
           span.style.transform = 'translate3d(0, 0%, 0)';
         });
@@ -706,7 +697,7 @@
       }
 
       // Callouts Reveal
-      if (t > 0.55) {
+      if (t > 0.8) {
         calloutLines.forEach(line => line.style.transform = 'scaleX(1)');
         calloutBodies.forEach((body, i) => {
           body.style.opacity = '1';
