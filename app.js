@@ -374,10 +374,12 @@
   let cachedScrollP = 0;
 
   function buildWavePathOptimized(cfg, timeSec, scrollP, ampMult) {
+    const isMob = window.innerWidth <= 860;
+    const mobileAmpScale = isMob ? 0.32 : 1.0;
     const n = (2 * Math.PI) / 1440;
     let d = "";
     for (let x = 0; x <= 1440; x += 12) {
-      const y = cfg.base + cfg.amp * ampMult * (
+      const y = cfg.base + (cfg.amp * mobileAmpScale) * ampMult * (
         0.65 * Math.sin(x * n * cfg.f1 + timeSec * cfg.s1 + cfg.phase + 9 * scrollP) +
         0.35 * Math.sin(x * n * cfg.f2 + timeSec * cfg.s2 - 6 * scrollP)
       );

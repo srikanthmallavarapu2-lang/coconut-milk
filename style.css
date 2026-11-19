@@ -2241,9 +2241,11 @@ svg {
 .purity-comparison-card {
   background: var(--white);
   border-radius: 28px;
-  padding: clamp(24px, 4vw, 40px);
+  padding: clamp(16px, 3.5vw, 40px);
   border: 1px solid rgba(23, 59, 84, 0.1);
   box-shadow: 0 20px 50px rgba(23, 59, 84, 0.08);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .comparison-header {
@@ -2258,6 +2260,7 @@ svg {
 
 .comparison-table {
   width: 100%;
+  min-width: 480px;
   border-collapse: collapse;
   font-size: 14px;
 }
@@ -3340,31 +3343,43 @@ svg {
 
 @media (max-width: 860px) {
   .site-header {
-    height: 76px;
-    padding: 0 20px;
-    grid-template-columns: 1fr auto;
+    height: 64px;
+    padding: 0 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(251, 248, 240, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 2px 14px rgba(23, 59, 84, 0.06);
+  }
+
+  .site-header.is-hero {
+    background: rgba(251, 248, 240, 0.92);
   }
 
   .brand-logo-wrap {
-    width: 116px;
+    width: 108px;
   }
 
   .main-nav-wrap {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 100;
-    width: min(calc(100vw - 24px), max-content);
-    max-width: calc(100vw - 24px);
+    position: fixed !important;
+    top: auto !important;
+    bottom: 18px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 200 !important;
+    width: min(calc(100vw - 24px), max-content) !important;
+    max-width: calc(100vw - 24px) !important;
   }
 
   .main-nav {
     gap: 16px;
     padding: 10px 18px;
     font-size: 11.5px;
-    background: rgba(255, 255, 255, 0.94);
-    box-shadow: 0 8px 30px rgba(23, 59, 84, 0.18);
+    background: rgba(255, 255, 255, 0.96) !important;
+    box-shadow: 0 6px 24px rgba(23, 59, 84, 0.22) !important;
+    border: 1px solid rgba(255, 255, 255, 0.95) !important;
     max-width: 100%;
     overflow-x: auto;
     white-space: nowrap;
@@ -3378,30 +3393,39 @@ svg {
 
   .header-actions .buy-button {
     height: 38px;
-    min-width: 105px;
+    min-width: 100px;
     padding: 0 14px;
     font-size: 11px;
   }
 
+  /* Gentle harmonic wave proportion on mobile */
+  .scene {
+    --wave-h: clamp(90px, 15vh, 130px);
+  }
+
+  .milk-wave {
+    width: max(100%, 750px);
+  }
+
   .hero-copy {
     align-content: start;
-    padding-top: 19svh;
+    padding-top: 17svh;
   }
 
   .hero-title {
-    font-size: clamp(58px, 19vw, 120px);
+    font-size: clamp(52px, 17vw, 110px);
     line-height: 0.74;
   }
 
   .coconut-left {
-    width: 60vw;
+    width: 58vw;
     top: auto;
     bottom: calc(12% + 20px);
     left: -5%;
   }
 
   .coconut-right {
-    width: 54vw;
+    width: 52vw;
     top: 9%;
     right: -5%;
   }
@@ -3433,21 +3457,49 @@ svg {
 
   .spotlight-copy {
     width: auto;
-    top: 96px;
-    left: 20px;
-    right: 20px;
+    top: 80px;
+    left: 18px;
+    right: 18px;
     transform: none;
   }
 
   .spotlight-title {
-    font-size: clamp(48px, 15vw, 72px);
+    font-size: clamp(44px, 13vw, 68px);
+  }
+
+  .spotlight-text {
+    max-width: 290px;
+    font-size: 13px;
+    line-height: 1.45;
+    margin-top: 10px;
+  }
+
+  .spotlight-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+
+  .spotlight-link {
+    padding: 9px 16px;
+    font-size: 12px;
+  }
+
+  /* HIDE the giant flavor edition card from the pinned spotlight on mobile to completely prevent word collision */
+  .spotlight-variants-card {
+    display: none !important;
   }
 
   .spotlight-badge {
-    width: 92px;
-    top: 300px;
+    width: 82px;
+    top: 260px;
     left: auto;
-    right: 20px;
+    right: 18px;
+  }
+
+  .badge-core {
+    font-size: 9.5px;
   }
 
   .callouts {
@@ -3459,8 +3511,8 @@ svg {
 
   .callout {
     position: absolute;
-    width: min(46vw, 230px);
-    left: clamp(14px, 4vw, 24px);
+    width: min(45vw, 210px);
+    left: 18px;
     pointer-events: auto;
   }
 
@@ -3484,11 +3536,12 @@ svg {
   }
 
   .callout strong {
-    font-size: 16px;
+    font-size: 15.5px;
   }
 
   .callout-text {
-    font-size: 11.5px;
+    font-size: 11px;
+    line-height: 1.35;
   }
 
   .marquee {
