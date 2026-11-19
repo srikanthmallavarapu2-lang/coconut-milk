@@ -600,12 +600,12 @@
 
     if (!sceneTrack || !bottle || !storyPanel) return;
 
-    let isMobile = window.innerWidth <= 760;
+    let isMobile = window.innerWidth <= 860;
     let cachedTotal = sceneTrack.offsetHeight - window.innerHeight;
     let cachedTrackTop = sceneTrack.offsetTop;
 
     window.addEventListener('resize', () => {
-      isMobile = window.innerWidth <= 760;
+      isMobile = window.innerWidth <= 860;
       cachedTotal = sceneTrack.offsetHeight - window.innerHeight;
       cachedTrackTop = sceneTrack.offsetTop;
     }, { passive: true });

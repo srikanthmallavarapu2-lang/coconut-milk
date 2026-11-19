@@ -3338,7 +3338,7 @@ svg {
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 860px) {
   .site-header {
     height: 76px;
     padding: 0 20px;
@@ -3355,15 +3355,25 @@ svg {
     left: 50%;
     transform: translateX(-50%);
     z-index: 100;
-    width: max-content;
+    width: min(calc(100vw - 24px), max-content);
+    max-width: calc(100vw - 24px);
   }
 
   .main-nav {
-    gap: 18px;
-    padding: 12px 20px;
-    font-size: 11px;
-    background: rgba(255, 255, 255, 0.92);
-    box-shadow: 0 8px 30px rgba(23, 59, 84, 0.16);
+    gap: 16px;
+    padding: 10px 18px;
+    font-size: 11.5px;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 8px 30px rgba(23, 59, 84, 0.18);
+    max-width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .main-nav::-webkit-scrollbar {
+    display: none;
   }
 
   .header-actions .buy-button {
@@ -3544,6 +3554,150 @@ svg {
     padding-bottom: 90px;
     text-align: center;
     gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-header {
+    padding: 0 14px;
+    height: 70px;
+  }
+
+  .brand-logo-wrap {
+    width: 104px;
+  }
+
+  .header-actions {
+    gap: 6px;
+  }
+
+  .header-actions .buy-button {
+    height: 36px;
+    min-width: 90px;
+    padding: 0 12px;
+    font-size: 10.5px;
+  }
+
+  .sound-toggle-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .cart-toggle-btn {
+    height: 36px;
+    padding: 0 12px;
+    font-size: 11.5px;
+  }
+
+  .cart-badge {
+    min-width: 20px;
+    height: 20px;
+    font-size: 11px;
+  }
+
+  .main-nav {
+    gap: 12px;
+    padding: 9px 14px;
+    font-size: 11px;
+  }
+
+  .spotlight-copy {
+    top: 84px;
+    left: 14px;
+    right: 14px;
+  }
+
+  .spotlight-actions {
+    gap: 6px;
+  }
+
+  .spotlight-link {
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+
+  .spotlight-badge {
+    width: 76px;
+    top: 250px;
+    right: 14px;
+  }
+
+  .callouts {
+    left: 14px;
+    right: 14px;
+    bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .callout {
+    width: 100%;
+  }
+
+  .modern-callout-card {
+    padding: 10px 14px;
+    border-radius: 16px;
+  }
+
+  .callout strong {
+    font-size: 16px;
+  }
+
+  .callout-text {
+    font-size: 11.5px;
+  }
+
+  .cta-card {
+    padding: 32px 18px;
+    margin-top: 50px;
+    border-radius: 26px;
+  }
+
+  .cta-copy h2 {
+    font-size: 36px;
+  }
+
+  .cta-button {
+    padding: 13px 22px;
+    font-size: 13.5px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cta-pack-btn {
+    padding: 7px 12px;
+    font-size: 11.5px;
+  }
+
+  .purchase-frequency-selector {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .freq-btn {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+
+  .faq-question {
+    padding: 16px 18px;
+    font-size: 15.5px;
+  }
+
+  .faq-answer {
+    padding: 0 18px;
+    font-size: 13.5px;
+  }
+
+  .toast-notice {
+    bottom: 84px;
+    right: 14px;
+    left: 14px;
+    padding: 12px 18px;
+    font-size: 13px;
+    justify-content: center;
+    text-align: center;
   }
 }
 
