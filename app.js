@@ -32,6 +32,32 @@
     isWaveVisible: true
   };
 
+  // Crisp Web Audio Tactile Micro-Click Synthesis
+  function playTactileClick(freq = 600, type = 'sine', duration = 0.04) {
+    try {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) return;
+      if (!window.__cocolushClickCtx) {
+        window.__cocolushClickCtx = new AudioCtx();
+      }
+      const ctx = window.__cocolushClickCtx;
+      if (ctx.state === 'suspended') {
+        ctx.resume();
+      }
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = type;
+      osc.frequency.setValueAtTime(freq, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(freq * 0.45, ctx.currentTime + duration);
+      gain.gain.setValueAtTime(0.04, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + duration);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + duration);
+    } catch (_) {}
+  }
+
   // Pre-compiled Information Catalog for all interactive buttons & badges
   const infoData = {
     'preservatives': {
@@ -298,6 +324,8 @@
       name: 'Pure Original (850ml)',
       tagline: 'Naturally sweet & velvety',
       glow: 'rgba(72, 169, 223, 0.45)',
+      color: '#1b74a8',
+      gradient: 'linear-gradient(90deg, #48a9df 0%, #1b74a8 100%)',
       mct: '16g per bottle',
       notes: 'Freshly cracked coconut · Light sweetness · Clean finish',
       radar: { cream: '92%', creamVal: '92%', sweet: '65%', sweetVal: '65%', foam: '88%', foamVal: '88%', mct: '72%', mctVal: '16g' }
@@ -306,6 +334,8 @@
       name: 'Barista Reserve (850ml)',
       tagline: 'Micro-foam perfection for latte art',
       glow: 'rgba(212, 163, 115, 0.5)',
+      color: '#a35d20',
+      gradient: 'linear-gradient(90deg, #d4a373 0%, #a35d20 100%)',
       mct: '18g per bottle',
       notes: 'Dense micro-bubbles · High thermal stability · Zero curdling',
       radar: { cream: '96%', creamVal: '96%', sweet: '45%', sweetVal: '45%', foam: '99%', foamVal: '99%', mct: '78%', mctVal: '18g' }
@@ -314,6 +344,8 @@
       name: 'Madagascar Vanilla (850ml)',
       tagline: 'Infused with organic Bourbon beans',
       glow: 'rgba(235, 190, 120, 0.5)',
+      color: '#b8861c',
+      gradient: 'linear-gradient(90deg, #ebbe78 0%, #b8861c 100%)',
       mct: '15g per bottle',
       notes: 'Floral vanilla aroma · Custard undertones · Dessert luxury',
       radar: { cream: '94%', creamVal: '94%', sweet: '78%', sweetVal: '78%', foam: '85%', foamVal: '85%', mct: '68%', mctVal: '15g' }
@@ -322,6 +354,8 @@
       name: 'Raw Keto Pure (850ml)',
       tagline: '0g Sugar · Maximum MCT Energy',
       glow: 'rgba(47, 138, 100, 0.45)',
+      color: '#238350',
+      gradient: 'linear-gradient(90deg, #52b788 0%, #238350 100%)',
       mct: '24g per bottle',
       notes: 'Ultra-dense richness · Zero carbohydrates · Sustained focus',
       radar: { cream: '98%', creamVal: '98%', sweet: '10%', sweetVal: '10%', foam: '82%', foamVal: '82%', mct: '98%', mctVal: '24g' }
@@ -1154,6 +1188,8 @@
         const vKey = pill.dataset.variant;
         if (!variants[vKey]) return;
 
+        playTactileClick(640);
+
         pills.forEach(p => {
           const isActive = p === pill;
           p.classList.toggle('is-active', isActive);
@@ -1165,6 +1201,12 @@
         if (bottleGlow) {
           bottleGlow.style.background = `radial-gradient(closest-side, ${vData.glow}, transparent)`;
         }
+
+        // Dynamically tint radar bars to match active flavor theme
+        const sensoryFills = document.querySelectorAll('.sensory-fill');
+        sensoryFills.forEach(fill => {
+          fill.style.background = vData.gradient;
+        });
 
         // Live Sensory Radar Bars Animation with 21st.dev Animated Number Rolling Ticker
         if (vData.radar) {
@@ -1262,6 +1304,30 @@
       }
     }
 
+    // Dynamic Free Shipping threshold calculation ($35.00)
+    const shippingThreshold = 35.00;
+    const currentSubtotal = parseFloat(total) || 0;
+    const shippingProgressFill = document.getElementById('shippingProgressFill');
+    const shippingBadgeText = document.getElementById('shippingBadgeText');
+
+    if (shippingProgressFill && shippingBadgeText) {
+      if (currentSubtotal === 0) {
+        shippingProgressFill.style.width = '0%';
+        shippingProgressFill.classList.remove('free-shipping-unlocked');
+        shippingBadgeText.innerHTML = `🚚 Add <strong>$35.00</strong> for <strong>FREE Chilled Delivery</strong>`;
+      } else if (currentSubtotal < shippingThreshold) {
+        const remaining = (shippingThreshold - currentSubtotal).toFixed(2);
+        const percent = Math.min(100, Math.round((currentSubtotal / shippingThreshold) * 100));
+        shippingProgressFill.style.width = `${percent}%`;
+        shippingProgressFill.classList.remove('free-shipping-unlocked');
+        shippingBadgeText.innerHTML = `🚚 Add <strong>$${remaining}</strong> more for <strong>FREE Chilled Delivery</strong>`;
+      } else {
+        shippingProgressFill.style.width = '100%';
+        shippingProgressFill.classList.add('free-shipping-unlocked');
+        shippingBadgeText.innerHTML = `🎉 <strong>FREE Chilled Delivery Unlocked!</strong> (Tomorrow, 10 AM)`;
+      }
+    }
+
     // Sync drawer checkbox
     const subCheckbox = document.getElementById('drawerSubscribeCheckbox');
     if (subCheckbox) subCheckbox.checked = isSub;
@@ -1276,11 +1342,13 @@
   }
 
   function addItemToCart(num = 1) {
+    playTactileClick(760);
     syncCartState(state.cartItems.qty + num);
     showToast(`Added to Bag! Total: ${state.cartCount} in chilled bag.`);
   }
 
   function removeItemFromCart() {
+    playTactileClick(420);
     syncCartState(0);
     showToast('Removed item from your chilled bag.');
   }
@@ -1327,12 +1395,14 @@
 
     if (btnFreqOneTime && btnFreqSubscribe) {
       btnFreqOneTime.addEventListener('click', () => {
+        playTactileClick(520);
         state.isSubscription = false;
         syncCartState(state.cartItems.qty);
         showToast('One-Time Purchase selected.');
       });
 
       btnFreqSubscribe.addEventListener('click', () => {
+        playTactileClick(600);
         state.isSubscription = true;
         syncCartState(state.cartItems.qty);
         showToast('★ Subscribe & Save 15% activated! Auto-delivers every 2 weeks.');
@@ -1342,6 +1412,7 @@
     // Pack Selector
     packBtns.forEach(btn => {
       btn.addEventListener('click', () => {
+        playTactileClick(580);
         packBtns.forEach(b => b.classList.toggle('is-active', b === btn));
         const pack = btn.dataset.pack;
 
@@ -1402,9 +1473,11 @@
 
     document.addEventListener('click', (e) => {
       if (e.target.closest('#cartQtyPlusBtn') || e.target.classList.contains('qty-plus')) {
+        playTactileClick(720);
         syncCartState(state.cartItems.qty + 1);
         showToast(`Quantity: ${state.cartItems.qty}`);
       } else if (e.target.closest('#cartQtyMinusBtn') || e.target.classList.contains('qty-minus')) {
+        playTactileClick(540);
         if (state.cartItems.qty > 1) {
           syncCartState(state.cartItems.qty - 1);
           showToast(`Quantity: ${state.cartItems.qty}`);
